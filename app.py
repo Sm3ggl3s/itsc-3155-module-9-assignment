@@ -15,7 +15,8 @@ def index():
 @app.route('/movies')
 def list_all_movies():
     # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    movieList = movie_repository.get_all_movies()
+    return render_template('list_all_movies.html', list_movies_active=True, movieList =movieList)
 
 
 @app.route('/movies/new')
