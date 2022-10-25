@@ -7,7 +7,7 @@
 <p class="mb-3">Search for a movie rating below</p>
 <!-- TODO: Feature 3 -->
 
-<form action="/movies/search"method="get">
+<form action="/movies/search" method="get">
   <div class="mb-3">
     <label for="title" class="form-label"> Movie Title</label>
     <input type="text" class="form-control" id="title" name="title"  placeholder="Enter Movie Title" required>
@@ -15,11 +15,11 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-{% if movie is none %}
+{% if movie == none %}
 <div class="mt-3">
   <h3> No movie found with that title </h3>
 </div>
-{% else %}
+{% endif %}
 <div class="mt-3">
   <table class="table">
     <thead>
@@ -30,14 +30,16 @@
       </tr>
     </thead>
     <tbody>
+      {% if movie != none %}
       <tr>
         <th scope="row">{{movie.title}}</th>
         <td scope="row">{{movie.rating}}</td>
         <td scope="row">{{movie.director}}</td>
       </tr>
+      {% endif %}
     </tbody>
   </table>
 </div>
-{% endif %}
+
 
 {% endblock %}

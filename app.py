@@ -37,13 +37,12 @@ def create_movie():
     return redirect('/movies')
 
 
-@app.route('/movies/search')
+@app.route('/movies/search', methods = ["GET"])
 def search_movies():
     # TODO: Feature 3
-    search_title = request.form.get('title', type = str)
-    if search_title is None:
-        movie_title = None
-    else: 
-        movie_title = movie_repository.get_movie_by_title(search_title)
+    search_title = request.args.get('title', type = str)
     
+    movie_title = movie_repository.get_movie_by_title(search_title)
+    
+    print(search_title)
     return render_template('search_movies.html', search_active=True, movie = movie_title)

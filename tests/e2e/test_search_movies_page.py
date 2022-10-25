@@ -20,12 +20,13 @@ def test_search_movies_page(test_app: FlaskClient):
     response_fail_data = response_fail.data
 
     movie_in = _movie_repo.get_movie_by_title(response_pass_data)
-    
+    movie_not_in = _movie_repo.get_movie_by_title(response_fail_data)
     
 
+    
 
-    assert b'Star Wars' in response_pass_data
-    assert b"Justice League" in response_fail_data
+    assert b'<th scope="row">Star Wars</th>' in response_pass_data
+    assert b"<h3> No movie found with that title </h3>" in response_fail_data
 
 
     
