@@ -1,5 +1,6 @@
 # TODO: Feature 2
 #from urllib import response
+from flask import Flask, redirect, render_template, request
 from app import app, movie_repository
 import pytest
 
@@ -12,6 +13,16 @@ def test_app():
 def test_create_movies_e2e(test_app):
     response = test_app.get('/movies/new')
     response_data = response.data
+
+    response2 = test_app.post("/movies", data={
+        "mname": "Hi",
+        "dname": "Steve",
+        "rating": 3
+    }, follow_redirects=True)
+
+    
+
+
     assert b'<h1 class="mb-5" id="center">Create Movie Rating</h1>' in response_data
     assert b'<input type="mname" name="mname"  class="form-control" id="mname" autocomplete="off">' in response_data
     assert b'<input name="dname" type="dname" class="form-control" id="dname" autocomplete="off">' in response_data
