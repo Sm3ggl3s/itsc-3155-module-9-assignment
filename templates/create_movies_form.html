@@ -3,7 +3,65 @@
 {% block title %}Movie Rating App | Create Movie Rating{% endblock %}
 
 {% block body %}
-<h1 class="mb-5">Create Movie Rating</h1>
-<p class="mb-3">Create a movie rating below</p>
+<h1 class="mb-5" id="center">Create Movie Rating</h1>
+
 <!-- TODO: Feature 2 -->
+<form action="/movies" method="post">
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Movie Name:</label>
+        <div class="col-sm-10">
+            <input type="mname" name="mname"  class="form-control" id="mname" autocomplete="off">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Director Name:</label>
+        <div class="col-sm-10">
+            <input name="dname" type="dname" class="form-control" id="dname" autocomplete="off">
+        </div>
+    </div>
+    <fieldset class="row mb-3">
+        <legend name="rating" id="rating" class="col-form-label col-sm-2 pt-0">Rating</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="1">
+                <label class="form-check-label" for="gridRadios1">
+                    1
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="2">
+                <label class="form-check-label" for="gridRadios2">
+                    2
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="3">
+                <label class="form-check-label" for="gridRadios3">
+                    3
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="4">
+                <label class="form-check-label" for="gridRadios4">
+                    4
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios5" value="5">
+                <label class="form-check-label" for="gridRadios5">
+                    5
+                </label>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+            </div>
+        </div>
+    </div>
+</form>
+
 {% endblock %}
