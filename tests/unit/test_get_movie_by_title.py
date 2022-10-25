@@ -4,7 +4,6 @@ from src.repositories.movie_repository import _movie_repo
 
 def test_get_movie_by_title():
     _movie_repo.create_movie('Star Wars', 'George Lucas', 5)
-    #test_movie = get_movie_repository.create_movie('Star Wars', 'George Lucas', 5)
     
     test_title = "Star Wars"
     test_title1 = "Thor"

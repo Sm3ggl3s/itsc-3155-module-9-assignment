@@ -21,8 +21,3 @@ def test_create_movies(test_app):
     # Test for false positive
     assert not movie_repository.get_movie_by_title("Jurassic")
 
-    for i in movie_repository.get_all_movies():
-        print(i.title)
-        print(i.director)
-        print(i.rating)
-    print(movie_repository.get_all_movies())
