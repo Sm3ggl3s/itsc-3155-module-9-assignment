@@ -35,11 +35,3 @@ def test_fp_create_movie(test_app):
         "rating": 3
     })
 
-    state2 = False
-    movieEx2 = Movie("Hello", "Steven", 5)
-    movieEx2.__dict__
-    for i in movie_repository.get_all_movies():
-        if movieEx2.__dict__ != i.__dict__:
-            state2 = True
-        
-    assert state2

@@ -1,5 +1,6 @@
 from flask import Flask, redirect, render_template, request
 
+
 from src.repositories.movie_repository import get_movie_repository
 
 app = Flask(__name__)
@@ -15,7 +16,8 @@ def index():
 @app.route('/movies')
 def list_all_movies():
     # TODO: Feature 1
-    return render_template('list_all_movies.html', list_movies_active=True)
+    movieList = movie_repository.get_all_movies()
+    return render_template('list_all_movies.html', list_movies_active=True, movieList =movieList)
 
 
 @app.route('/movies/new')
@@ -35,7 +37,12 @@ def create_movie():
     return redirect('/movies')
 
 
-@app.route('/movies/search')
+@app.route('/movies/search', methods = ["GET"])
 def search_movies():
     # TODO: Feature 3
-    return render_template('search_movies.html', search_active=True)
+    search_title = request.args.get('title', type = str)
+    
+    movie_title = movie_repository.get_movie_by_title(search_title)
+    
+    print(search_title)
+    return render_template('search_movies.html', search_active=True, movie = movie_title)
