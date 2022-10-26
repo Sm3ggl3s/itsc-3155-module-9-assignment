@@ -32,7 +32,7 @@ def create_movie():
 
     title = request.form.get('mname')
     director = request.form.get('dname')
-    rating = int(request.form.get('rating'))
+    rating = request.form.get('gridRadios')
     movie_repository.create_movie(title,director,rating)
     return redirect('/movies')
 
